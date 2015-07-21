@@ -6,12 +6,12 @@ use Yii;
 use yeesoft\base\controllers\admin\BaseController;
 
 /**
- * MenuController implements the CRUD actions for Post model.
+ * MenuLinkController implements the CRUD actions for Post model.
  */
-class DefaultController extends BaseController 
+class LinkController extends BaseController
 {
-    public $modelClass       = 'yeesoft\menu\models\Menu';
-    public $modelSearchClass = 'yeesoft\menu\models\search\SearchMenu';
+    public $modelClass       = 'yeesoft\menu\models\MenuLink';
+    public $modelSearchClass = 'yeesoft\menu\models\search\SearchMenuLink';
 
     protected function getRedirectPage($action, $model = null)
     {

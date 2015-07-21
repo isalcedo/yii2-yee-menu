@@ -2,15 +2,14 @@
 
 namespace yeesoft\menu\models\search;
 
-use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use yeesoft\menu\models\Menu;
+use yeesoft\menu\models\MenuLink;
 
 /**
- * SearchMenu represents the model behind the search form about `frontend\models\Menu`.
+ * SearchMenuLink represents the model behind the search form about `yeesoft\menu\models\MenuLink`.
  */
-class SearchMenu extends Menu
+class SearchMenuLink extends MenuLink
 {
 
     /**
@@ -19,7 +18,8 @@ class SearchMenu extends Menu
     public function rules()
     {
         return [
-            [['id', 'title'], 'safe'],
+            [['order'], 'integer'],
+            [['id', 'menu_id', 'parent_id', 'link', 'label', 'image'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class SearchMenu extends Menu
      */
     public function search($params)
     {
-        $query = Menu::find();
+        $query = MenuLink::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -55,10 +55,16 @@ class SearchMenu extends Menu
             return $dataProvider;
         }
 
-
+        $query->andFilterWhere([
+            'order' => $this->order,
+        ]);
 
         $query->andFilterWhere(['like', 'id', $this->id])
-            ->andFilterWhere(['like', 'title', $this->title]);
+            ->andFilterWhere(['like', 'link', $this->link])
+            ->andFilterWhere(['like', 'label', $this->label])
+            ->andFilterWhere(['like', 'menu_id', $this->menu_id])
+            ->andFilterWhere(['like', 'parent_id', $this->parent_id])
+            ->andFilterWhere(['like', 'image', $this->image]);
 
         return $dataProvider;
     }

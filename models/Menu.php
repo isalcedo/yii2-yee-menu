@@ -2,13 +2,16 @@
 
 namespace yeesoft\menu\models;
 
+use yii\helpers\ArrayHelper;
+
 /**
-   * This is the model class for table "menu".
-   *
-   * @property integer $id
-   * @property string $key
-   * @property string $title
-    */
+ * This is the model class for table "menu".
+ *
+ * @property string $id
+ * @property string $title
+ *
+ * @property MenuLink[] $menuLinks
+ */
 class Menu extends \yii\db\ActiveRecord
 {
 
@@ -26,10 +29,9 @@ class Menu extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['key', 'title'], 'required'],
-            [['key'], 'string', 'max' => 64],
-            [['title'], 'string', 'max' => 255],
-            [['key'], 'unique']
+            [['id', 'title'], 'required'],
+            [['id'], 'string', 'max' => 64],
+            [['title'], 'string', 'max' => 255]
         ];
     }
 
@@ -40,8 +42,24 @@ class Menu extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'key' => 'Key',
             'title' => 'Title',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getLinks()
+    {
+        return $this->hasMany(MenuLink::className(), ['menu_id' => 'id']);
+    }
+
+    /**
+     * get list of menus
+     * @return array
+     */
+    public static function getList()
+    {
+        return ArrayHelper::map(self::find()->asArray()->all(), 'id', 'title');
     }
 }

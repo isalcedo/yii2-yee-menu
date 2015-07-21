@@ -13,6 +13,8 @@ class m150719_174321_create_menu_table extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB';
         }
 
+        $this->insert($tableOptions, $columns);
+
         $this->createTable('post',
             [
             'id' => 'pk',

@@ -5,13 +5,13 @@ use yii\widgets\DetailView;
 use yeesoft\usermanagement\components\GhostHtml;
 
 /* @var $this yii\web\View */
-/* @var $model yeesoft\menu\models\Menu */
+/* @var $model yeesoft\menu\models\MenuLink */
 
-$this->title                   = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Menus', 'url' => ['index']];
+$this->title                   = $model->label;
+$this->params['breadcrumbs'][] = ['label' => 'Menu Links', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="menu-view">
+<div class="menu-link-view">
 
     <h3 class="lte-hide-title"><?= Html::encode($this->title) ?></h3>
 
@@ -45,7 +45,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'model' => $model,
                 'attributes' => [
                     'id',
-                    'title',
+                    'menu_id',
+                    'link',
+                    'label',
+                    'parent_id',
+                    'image',
+                    'order',
                 ],
             ])
             ?>
