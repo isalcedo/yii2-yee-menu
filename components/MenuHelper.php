@@ -31,6 +31,7 @@ class MenuHelper
     public static function getIcons()
     {
         return [
+            '' => 'No Icon',
             'asterisk' => 'Asterisk',
             'plus' => 'Plus',
             'euro' => 'Euro',

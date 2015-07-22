@@ -31,7 +31,8 @@ class Menu extends \yii\db\ActiveRecord
         return [
             [['id', 'title'], 'required'],
             [['id'], 'string', 'max' => 64],
-            [['title'], 'string', 'max' => 255]
+            [['title'], 'string', 'max' => 255],
+            [['id'], 'match', 'pattern' => '/^[a-z0-9_-]+$/', 'message' => 'Menu ID can only contain lowercase alphanumeric characters, underscores and dashes.'],
         ];
     }
 

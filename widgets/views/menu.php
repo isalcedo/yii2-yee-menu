@@ -6,21 +6,7 @@ use yeesoft\usermanagement\components\GhostNav;
 ?>
 
 <?= $wrapper[0]; ?>
-
-<?php
-if ($options !== NULL) {
-
-}
-?>
-
 <?=
-GhostNav::widget([
-    'encodeLabels' => $encodeLabels,
-    'dropDownCaret' => $dropDownCaret,
-    'options' => $options[0],
-    'items' => $items
-]);
+GhostNav::widget(compact('encodeLabels', 'dropDownCaret', 'options', 'items'));
 ?>
-
-
 <?= $wrapper[1]; ?>

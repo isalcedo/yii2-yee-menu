@@ -38,7 +38,8 @@ class MenuLink extends \yii\db\ActiveRecord
             [['order'], 'integer'],
             [['id', 'menu_id', 'parent_id'], 'string', 'max' => 64],
             [['link', 'label'], 'string', 'max' => 255],
-            [['image'], 'string', 'max' => 128]
+            [['image'], 'string', 'max' => 128],
+            [['id'], 'match', 'pattern' => '/^[a-z0-9_-]+$/', 'message' => 'Link ID can only contain lowercase alphanumeric characters, underscores and dashes.'],
         ];
     }
 
@@ -53,7 +54,7 @@ class MenuLink extends \yii\db\ActiveRecord
             'link' => 'Link',
             'label' => 'Label',
             'parent_id' => 'Parent Link',
-            'image' => 'Image',
+            'image' => 'Icon',
             'order' => 'Order',
         ];
     }
@@ -67,14 +68,14 @@ class MenuLink extends \yii\db\ActiveRecord
     }
 
     /**
-     * get list of menus
+     * Get list of link siblings
      * @return array
      */
     public function getSiblings()
     {
         $siblings = MenuLink::find()
-                ->andWhere(['like', 'menu_id', $this->menu_id])
-                ->andWhere(['!=', 'id', $this->id])
+                ->andFilterWhere(['like', 'menu_id', $this->menu_id])
+                ->andFilterWhere(['!=', 'id', $this->id])
                 ->asArray()->all();
 
         $list = ArrayHelper::map(
