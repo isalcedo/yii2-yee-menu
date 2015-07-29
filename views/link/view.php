@@ -1,13 +1,13 @@
 <?php
 
+use yeesoft\usermanagement\components\GhostHtml;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-use yeesoft\usermanagement\components\GhostHtml;
 
 /* @var $this yii\web\View */
 /* @var $model yeesoft\menu\models\MenuLink */
 
-$this->title                   = $model->label;
+$this->title = $model->label;
 $this->params['breadcrumbs'][] = ['label' => 'Menu Links', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -26,12 +26,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?=
                 GhostHtml::a('Delete', ['delete', 'id' => $model->id],
                     [
-                    'class' => 'btn btn-sm btn-default',
-                    'data' => [
-                        'confirm' => 'Are you sure you want to delete this item?',
-                        'method' => 'post',
-                    ],
-                ])
+                        'class' => 'btn btn-sm btn-default',
+                        'data' => [
+                            'confirm' => 'Are you sure you want to delete this item?',
+                            'method' => 'post',
+                        ],
+                    ])
                 ?>
                 <?=
                 GhostHtml::a('Add New', ['create'],

@@ -2,8 +2,8 @@
 
 namespace yeesoft\menu\widgets;
 
-use yeesoft\menu\models\Menu as MenuModel;
 use yeesoft\menu\components\MenuHelper;
+use yeesoft\menu\models\Menu as MenuModel;
 
 /**
  * Yee Menu widget.
@@ -31,7 +31,7 @@ class Menu extends \yii\base\Widget
 {
     /**
      * Menu model id
-     * 
+     *
      * @var string
      */
     public $id;
@@ -39,7 +39,7 @@ class Menu extends \yii\base\Widget
     /**
      * Menu wrapper. Array with two elements: first element will be placed before
      * menu, second element will be placed after menu.
-     * 
+     *
      * @var array
      */
     public $wrapper = ['', ''];
@@ -85,9 +85,9 @@ class Menu extends \yii\base\Widget
     public function run()
     {
         $links = MenuModel::findOne('admin-main-menu')
-                ->getLinks()
-                ->orderBy(['parent_id' => 'ACS', 'order' => 'ACS'])
-                ->asArray()->all();
+            ->getLinks()
+            ->orderBy(['parent_id' => 'ACS', 'order' => 'ACS'])
+            ->asArray()->all();
 
         $this->items = Menu::generateNavigationItems($links, $this->options);
 
@@ -96,7 +96,7 @@ class Menu extends \yii\base\Widget
 
     private static function generateNavigationItems($links, $options)
     {
-        $items         = [];
+        $items = [];
         $linksByParent = [];
 
         foreach ($links as $link) {
@@ -113,15 +113,15 @@ class Menu extends \yii\base\Widget
     private static function generateItem($link, $menuLinks)
     {
         $item = [];
-        $icon = (!empty($link['image'])) ? MenuHelper::generateIcon($link['image']).' '
-                : '';
+        $icon = (!empty($link['image'])) ? MenuHelper::generateIcon($link['image']) . ' '
+            : '';
 
         $subItems = Menu::generateSubItems($link['id'], $menuLinks);
 
-        $item['label'] = $icon.$link['label'];
+        $item['label'] = $icon . $link['label'];
 
         if ($link['link']) {
-            $url         = parse_url($link['link']);
+            $url = parse_url($link['link']);
             $item['url'] = (isset($url['scheme'])) ? $link['link'] : [$link['link']];
         }
 

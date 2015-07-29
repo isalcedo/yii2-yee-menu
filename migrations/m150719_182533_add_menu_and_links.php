@@ -1,7 +1,7 @@
 <?php
 
-use yii\db\Schema;
 use yii\db\Migration;
+use yii\db\Schema;
 
 class m150719_182533_add_menu_and_links extends Migration
 {
@@ -13,19 +13,19 @@ class m150719_182533_add_menu_and_links extends Migration
 
         $this->insert('menu_link',
             ['id' => 'dashboard', 'menu_id' => 'admin-main-menu', 'link' => '/',
-            'label' => 'Dashboard', 'image' => 'th-large', 'order' => 1]);
+                'label' => 'Dashboard', 'image' => 'th-large', 'order' => 1]);
 
         $this->insert('menu_link',
             ['id' => 'menu', 'menu_id' => 'admin-main-menu', 'label' => 'Menus',
-            'image' => 'align-justify', 'order' => 10]);
+                'image' => 'align-justify', 'order' => 10]);
 
         $this->insert('menu_link',
             ['id' => 'menu-link', 'menu_id' => 'admin-main-menu', 'link' => '/menu/link',
-            'label' => 'Links', 'parent_id' => 'menu', 'order' => 2]);
+                'label' => 'Links', 'parent_id' => 'menu', 'order' => 2]);
 
         $this->insert('menu_link',
             ['id' => 'menu-menu', 'menu_id' => 'admin-main-menu', 'link' => '/menu',
-            'label' => 'Menus', 'parent_id' => 'menu', 'order' => 1]);
+                'label' => 'Menus', 'parent_id' => 'menu', 'order' => 1]);
     }
 
     public function down()

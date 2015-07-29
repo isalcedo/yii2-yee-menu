@@ -1,20 +1,19 @@
 <?php
 
-use yii\helpers\Url;
-use yii\helpers\Html;
-use yii\widgets\Pjax;
-use yeesoft\grid\GridView;
-use yeesoft\menu\models\MenuLink;
-use yeesoft\menu\components\MenuHelper;
-use yeesoft\gridquicklinks\GridQuickLinks;
-use yeesoft\usermanagement\components\GhostHtml;
 use webvimark\extensions\GridPageSize\GridPageSize;
+use yeesoft\grid\GridView;
+use yeesoft\menu\components\MenuHelper;
+use yeesoft\menu\models\MenuLink;
+use yeesoft\usermanagement\components\GhostHtml;
+use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\SearchMenuLink */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title                   = 'Menu Links';
+$this->title = 'Menu Links';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="menu-link-index">
@@ -55,9 +54,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     ['class' => 'yii\grid\CheckboxColumn', 'options' => ['style' => 'width:10px']],
                     [
                         'attribute' => 'image',
-                        'value' => function(MenuLink $model) {
-                        return MenuHelper::generateIcon($model->image);
-                    },
+                        'value' => function (MenuLink $model) {
+                            return MenuHelper::generateIcon($model->image);
+                        },
                         'format' => 'raw',
                         'contentOptions' => [
                             'style' => 'width:20px; text-align:center;'
@@ -66,10 +65,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'class' => 'yeesoft\grid\columns\TitleActionColumn',
                         'attribute' => 'id',
-                        'title' => function(MenuLink $model) {
-                        return Html::a($model->label,
+                        'title' => function (MenuLink $model) {
+                            return Html::a($model->label,
                                 ['view', 'id' => $model->id], ['data-pjax' => 0]);
-                    },
+                        },
                         'format' => 'raw'
                     ],
                     'menu_id',

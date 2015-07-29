@@ -2,15 +2,15 @@
 
 namespace yeesoft\menu\controllers;
 
-use Yii;
 use yeesoft\base\controllers\admin\BaseController;
+use Yii;
 
 /**
  * MenuController implements the CRUD actions for Post model.
  */
-class DefaultController extends BaseController 
+class DefaultController extends BaseController
 {
-    public $modelClass       = 'yeesoft\menu\models\Menu';
+    public $modelClass = 'yeesoft\menu\models\Menu';
     public $modelSearchClass = 'yeesoft\menu\models\search\SearchMenu';
 
     protected function getRedirectPage($action, $model = null)

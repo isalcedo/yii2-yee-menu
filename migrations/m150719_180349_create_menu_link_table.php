@@ -1,7 +1,7 @@
 <?php
 
-use yii\db\Schema;
 use yii\db\Migration;
+use yii\db\Schema;
 
 class m150719_180349_create_menu_link_table extends Migration
 {
@@ -16,13 +16,13 @@ class m150719_180349_create_menu_link_table extends Migration
 
         $this->createTable('menu_link',
             [
-            'id' => Schema::TYPE_STRING.'(64) COLLATE utf8_unicode_ci NOT NULL',
-            'menu_id' => Schema::TYPE_STRING.'(64) COLLATE utf8_unicode_ci NOT NULL',
-            'link' => Schema::TYPE_STRING.'(255) COLLATE utf8_unicode_ci DEFAULT NULL',
-            'label' => Schema::TYPE_STRING.'(255) COLLATE utf8_unicode_ci NOT NULL',
-            'parent_id' => Schema::TYPE_STRING.'(64) COLLATE utf8_unicode_ci DEFAULT NULL',
-            'image' => Schema::TYPE_STRING.'(24) COLLATE utf8_unicode_ci DEFAULT NULL',
-            'order' => Schema::TYPE_INTEGER.' DEFAULT NULL',
+                'id' => Schema::TYPE_STRING . '(64) COLLATE utf8_unicode_ci NOT NULL',
+                'menu_id' => Schema::TYPE_STRING . '(64) COLLATE utf8_unicode_ci NOT NULL',
+                'link' => Schema::TYPE_STRING . '(255) COLLATE utf8_unicode_ci DEFAULT NULL',
+                'label' => Schema::TYPE_STRING . '(255) COLLATE utf8_unicode_ci NOT NULL',
+                'parent_id' => Schema::TYPE_STRING . '(64) COLLATE utf8_unicode_ci DEFAULT NULL',
+                'image' => Schema::TYPE_STRING . '(24) COLLATE utf8_unicode_ci DEFAULT NULL',
+                'order' => Schema::TYPE_INTEGER . ' DEFAULT NULL',
             ], $tableOptions);
 
         $this->addPrimaryKey('pk', 'menu_link', 'id');

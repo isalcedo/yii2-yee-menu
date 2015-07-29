@@ -1,9 +1,9 @@
 <?php
 
-use yii\widgets\ActiveForm;
-use yeesoft\menu\models\Menu;
 use yeesoft\menu\components\MenuHelper;
+use yeesoft\menu\models\Menu;
 use yeesoft\usermanagement\components\GhostHtml;
+use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model yeesoft\menu\models\MenuLink */
@@ -14,9 +14,9 @@ use yeesoft\usermanagement\components\GhostHtml;
 
     <?php
     $form = ActiveForm::begin([
-            'id' => 'menu-link-form',
-            'validateOnBlur' => false,
-        ])
+        'id' => 'menu-link-form',
+        'validateOnBlur' => false,
+    ])
     ?>
 
     <div class="row">
@@ -51,7 +51,9 @@ use yeesoft\usermanagement\components\GhostHtml;
                 <div class="panel-body">
                     <div class="record-info">
                         <div class="form-group clearfix">
-                            <label class="control-label" style="float: left; padding-right: 5px;"><?= $model->attributeLabels()['id'] ?>: </label>
+                            <label class="control-label"
+                                   style="float: left; padding-right: 5px;"><?= $model->attributeLabels()['id'] ?>
+                                : </label>
                             <span><?= $model->id ?></span>
                         </div>
 
@@ -75,8 +77,8 @@ use yeesoft\usermanagement\components\GhostHtml;
                                 GhostHtml::a('<span class="glyphicon glyphicon-remove"></span> Cancel',
                                     '../post',
                                     [
-                                    'class' => 'btn btn-default',
-                                ])
+                                        'class' => 'btn btn-default',
+                                    ])
                                 ?>
                             <?php else: ?>
                                 <?=
@@ -87,12 +89,12 @@ use yeesoft\usermanagement\components\GhostHtml;
                                 GhostHtml::a('<span class="glyphicon glyphicon-remove"></span> Delete',
                                     ['delete', 'id' => $model->id],
                                     [
-                                    'class' => 'btn btn-default',
-                                    'data' => [
-                                        'confirm' => 'Are you sure you want to delete this item?',
-                                        'method' => 'post',
-                                    ],
-                                ])
+                                        'class' => 'btn btn-default',
+                                        'data' => [
+                                            'confirm' => 'Are you sure you want to delete this item?',
+                                            'method' => 'post',
+                                        ],
+                                    ])
                                 ?>
                             <?php endif; ?>
                         </div>

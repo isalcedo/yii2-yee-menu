@@ -2,9 +2,9 @@
 
 namespace yeesoft\menu\models\search;
 
+use yeesoft\menu\models\MenuLink;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use yeesoft\menu\models\MenuLink;
 
 /**
  * SearchMenuLink represents the model behind the search form about `yeesoft\menu\models\MenuLink`.

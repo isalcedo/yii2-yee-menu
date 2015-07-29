@@ -14,7 +14,7 @@ class MenuHelper
                                         $before = '<i class="glyphicon glyphicon-',
                                         $after = '"></i>')
     {
-        return $before.$icon.$after;
+        return $before . $icon . $after;
     }
 
     public static function getIconsMenu()
@@ -22,7 +22,7 @@ class MenuHelper
         $icons = [];
 
         foreach (self::getIcons() as $icon => $title) {
-            $icons[$icon] = self::generateIcon($icon).' '.$title;
+            $icons[$icon] = self::generateIcon($icon) . ' ' . $title;
         }
 
         return ArrayHelper::merge([NULL => 'No Image'], $icons);

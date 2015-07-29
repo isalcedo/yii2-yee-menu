@@ -1,7 +1,7 @@
 <?php
 
-use yii\db\Schema;
 use yii\db\Migration;
+use yii\db\Schema;
 
 class m150719_174321_create_menu_table extends Migration
 {
@@ -15,8 +15,8 @@ class m150719_174321_create_menu_table extends Migration
 
         $this->createTable('menu',
             [
-            'id' => Schema::TYPE_STRING.'(64) COLLATE utf8_unicode_ci NOT NULL',
-            'title' => Schema::TYPE_STRING.'(255) COLLATE utf8_unicode_ci NOT NULL',
+                'id' => Schema::TYPE_STRING . '(64) COLLATE utf8_unicode_ci NOT NULL',
+                'title' => Schema::TYPE_STRING . '(255) COLLATE utf8_unicode_ci NOT NULL',
             ], $tableOptions);
 
         $this->addPrimaryKey('pk', 'menu', 'id');

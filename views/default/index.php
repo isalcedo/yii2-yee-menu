@@ -1,19 +1,18 @@
 <?php
 
-use yii\helpers\Url;
-use yii\helpers\Html;
-use yii\widgets\Pjax;
+use webvimark\extensions\GridPageSize\GridPageSize;
 use yeesoft\grid\GridView;
 use yeesoft\menu\models\Menu;
-use yeesoft\gridquicklinks\GridQuickLinks;
 use yeesoft\usermanagement\components\GhostHtml;
-use webvimark\extensions\GridPageSize\GridPageSize;
+use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $searchModel yeesoft\menu\models\search\SearchMenu */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title                   = 'Menus';
+$this->title = 'Menus';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="menu-index">
@@ -52,16 +51,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 'bulkActionOptions' => [
                     'gridId' => 'menu-grid',
-                    'actions' => [ Url::to(['bulk-delete']) => 'Delete']
+                    'actions' => [Url::to(['bulk-delete']) => 'Delete']
                 ],
                 'columns' => [
                     ['class' => 'yii\grid\CheckboxColumn', 'options' => ['style' => 'width:10px']],
                     [
                         'class' => 'yeesoft\grid\columns\TitleActionColumn',
-                        'title' => function(Menu $model) {
-                        return Html::a($model->title, ['/menu/link', 'SearchMenuLink[menu_id]' => $model->id],
+                        'title' => function (Menu $model) {
+                            return Html::a($model->title, ['/menu/link', 'SearchMenuLink[menu_id]' => $model->id],
                                 ['data-pjax' => 0]);
-                    },
+                        },
                     ],
                     'id',
                 ],

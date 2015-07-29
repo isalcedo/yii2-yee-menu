@@ -2,10 +2,10 @@
 
 namespace yeesoft\menu\models\search;
 
+use yeesoft\menu\models\Menu;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use yeesoft\menu\models\Menu;
 
 /**
  * SearchMenu represents the model behind the search form about `frontend\models\Menu`.
@@ -54,7 +54,6 @@ class SearchMenu extends Menu
             // $query->where('0=1');
             return $dataProvider;
         }
-
 
 
         $query->andFilterWhere(['like', 'id', $this->id])

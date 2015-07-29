@@ -74,14 +74,14 @@ class MenuLink extends \yii\db\ActiveRecord
     public function getSiblings()
     {
         $siblings = MenuLink::find()
-                ->andFilterWhere(['like', 'menu_id', $this->menu_id])
-                ->andFilterWhere(['!=', 'id', $this->id])
-                ->asArray()->all();
+            ->andFilterWhere(['like', 'menu_id', $this->menu_id])
+            ->andFilterWhere(['!=', 'id', $this->id])
+            ->asArray()->all();
 
         $list = ArrayHelper::map(
-                $siblings, 'id',
-                function ($array, $default) {
-                return $array['label'].' ['.$array['id'].']';
+            $siblings, 'id',
+            function ($array, $default) {
+                return $array['label'] . ' [' . $array['id'] . ']';
             });
 
         return ArrayHelper::merge([NULL => 'No Parent'], $list);
