@@ -84,7 +84,7 @@ class Menu extends \yii\base\Widget
 
     public function run()
     {
-        $links = MenuModel::findOne('admin-main-menu')
+        $links = MenuModel::findOne($this->id)
             ->getLinks()
             ->orderBy(['parent_id' => 'ACS', 'order' => 'ACS'])
             ->asArray()->all();
