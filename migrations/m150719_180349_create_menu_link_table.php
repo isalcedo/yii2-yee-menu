@@ -20,7 +20,7 @@ class m150719_180349_create_menu_link_table extends Migration
                 'menu_id' => Schema::TYPE_STRING . '(64) COLLATE utf8_unicode_ci NOT NULL',
                 'link' => Schema::TYPE_STRING . '(255) COLLATE utf8_unicode_ci DEFAULT NULL',
                 'label' => Schema::TYPE_STRING . '(255) COLLATE utf8_unicode_ci NOT NULL',
-                'parent_id' => Schema::TYPE_STRING . '(64) COLLATE utf8_unicode_ci DEFAULT ""',
+                'parent_id' => Schema::TYPE_STRING . "(64) COLLATE utf8_unicode_ci DEFAULT ''",
                 'image' => Schema::TYPE_STRING . '(24) COLLATE utf8_unicode_ci DEFAULT NULL',
                 'order' => Schema::TYPE_INTEGER . ' DEFAULT NULL',
             ], $tableOptions);
