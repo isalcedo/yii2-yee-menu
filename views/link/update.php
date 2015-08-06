@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model yeesoft\menu\models\MenuLink */
+/* @var $model yeesoft\models\MenuLink */
 
 $this->title = 'Update Menu Link: ' . ' ' . $model->label;
 $this->params['breadcrumbs'][] = ['label' => 'Menu Links', 'url' => ['index']];

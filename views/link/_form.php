@@ -1,8 +1,8 @@
 <?php
 
-use yeesoft\menu\components\MenuHelper;
-use yeesoft\menu\models\Menu;
-use yeesoft\usermanagement\components\GhostHtml;
+use yeesoft\helpers\Html;
+use yeesoft\helpers\MenuHelper;
+use yeesoft\models\Menu;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
@@ -70,11 +70,11 @@ use yii\widgets\ActiveForm;
                         <div class="form-group">
                             <?php if ($model->isNewRecord): ?>
                                 <?=
-                                GhostHtml::submitButton('<span class="glyphicon glyphicon-plus-sign"></span> Create',
+                                Html::submitButton('<span class="glyphicon glyphicon-plus-sign"></span> Create',
                                     ['class' => 'btn btn-success'])
                                 ?>
                                 <?=
-                                GhostHtml::a('<span class="glyphicon glyphicon-remove"></span> Cancel',
+                                Html::a('<span class="glyphicon glyphicon-remove"></span> Cancel',
                                     '../post',
                                     [
                                         'class' => 'btn btn-default',
@@ -82,11 +82,11 @@ use yii\widgets\ActiveForm;
                                 ?>
                             <?php else: ?>
                                 <?=
-                                GhostHtml::submitButton('<span class="glyphicon glyphicon-ok"></span> Save',
+                                Html::submitButton('<span class="glyphicon glyphicon-ok"></span> Save',
                                     ['class' => 'btn btn-primary'])
                                 ?>
                                 <?=
-                                GhostHtml::a('<span class="glyphicon glyphicon-remove"></span> Delete',
+                                Html::a('<span class="glyphicon glyphicon-remove"></span> Delete',
                                     ['delete', 'id' => $model->id],
                                     [
                                         'class' => 'btn btn-default',

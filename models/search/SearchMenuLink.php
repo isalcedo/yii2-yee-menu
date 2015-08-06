@@ -2,7 +2,7 @@
 
 namespace yeesoft\menu\models\search;
 
-use yeesoft\menu\models\MenuLink;
+use yeesoft\models\MenuLink;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 

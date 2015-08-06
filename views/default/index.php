@@ -2,9 +2,8 @@
 
 use webvimark\extensions\GridPageSize\GridPageSize;
 use yeesoft\grid\GridView;
-use yeesoft\menu\models\Menu;
-use yeesoft\usermanagement\components\GhostHtml;
-use yii\helpers\Html;
+use yeesoft\helpers\Html;
+use yeesoft\models\Menu;
 use yii\helpers\Url;
 use yii\widgets\Pjax;
 
@@ -21,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-sm-12">
             <h3 class="lte-hide-title page-title"><?= Html::encode($this->title) ?></h3>
             <?=
-            GhostHtml::a('Add New', ['create'],
+            Html::a('Add New', ['create'],
                 ['class' => 'btn btn-sm btn-primary'])
             ?>
         </div>

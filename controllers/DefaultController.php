@@ -10,7 +10,7 @@ use Yii;
  */
 class DefaultController extends BaseController
 {
-    public $modelClass = 'yeesoft\menu\models\Menu';
+    public $modelClass = 'yeesoft\models\Menu';
     public $modelSearchClass = 'yeesoft\menu\models\search\SearchMenu';
 
     protected function getRedirectPage($action, $model = null)

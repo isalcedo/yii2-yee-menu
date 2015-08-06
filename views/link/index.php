@@ -2,15 +2,14 @@
 
 use webvimark\extensions\GridPageSize\GridPageSize;
 use yeesoft\grid\GridView;
-use yeesoft\menu\components\MenuHelper;
-use yeesoft\menu\models\MenuLink;
-use yeesoft\usermanagement\components\GhostHtml;
-use yii\helpers\Html;
+use yeesoft\helpers\Html;
+use yeesoft\helpers\MenuHelper;
+use yeesoft\models\MenuLink;
 use yii\helpers\Url;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
-/* @var $searchModel frontend\models\SearchMenuLink */
+/* @var $searchModel yeesoft\menu\models\search\SearchMenuLink */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Menu Links';
@@ -22,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-sm-12">
             <h3 class="lte-hide-title page-title"><?= Html::encode($this->title) ?></h3>
             <?=
-            GhostHtml::a('Add New', ['create'],
+            Html::a('Add New', ['create'],
                 ['class' => 'btn btn-sm btn-primary'])
             ?>
         </div>

@@ -10,7 +10,7 @@ use Yii;
  */
 class LinkController extends BaseController
 {
-    public $modelClass = 'yeesoft\menu\models\MenuLink';
+    public $modelClass = 'yeesoft\models\MenuLink';
     public $modelSearchClass = 'yeesoft\menu\models\search\SearchMenuLink';
 
     protected function getRedirectPage($action, $model = null)
