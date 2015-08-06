@@ -8,13 +8,7 @@ class m150719_182533_add_menu_and_links extends Migration
 
     public function up()
     {
-        $this->insert('menu',
-            ['id' => 'admin-main-menu', 'title' => 'Main Admin Panel Menu']);
-
-        $this->insert('menu_link',
-            ['id' => 'dashboard', 'menu_id' => 'admin-main-menu', 'link' => '/',
-                'label' => 'Dashboard', 'image' => 'th-large', 'order' => 1]);
-
+       
         $this->insert('menu_link',
             ['id' => 'menu', 'menu_id' => 'admin-main-menu', 'label' => 'Menus',
                 'image' => 'align-justify', 'order' => 10]);
