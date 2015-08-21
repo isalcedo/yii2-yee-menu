@@ -20,10 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
         <div class="col-sm-12">
             <h3 class="lte-hide-title page-title"><?= Html::encode($this->title) ?></h3>
-            <?=
-            Html::a('Add New', ['create'],
-                ['class' => 'btn btn-sm btn-primary'])
-            ?>
+            <?= Html::a('Add New', ['/menu/link/create'], ['class' => 'btn btn-sm btn-primary']) ?>
         </div>
     </div>
 
@@ -46,8 +43,10 @@ $this->params['breadcrumbs'][] = $this->title;
             GridView::widget([
                 'id' => 'menu-link-grid',
                 'dataProvider' => $dataProvider,
-                'filterModel' => $searchModel, 'bulkActionOptions' => [
+                'filterModel' => $searchModel,
+                'bulkActionOptions' => [
                     'gridId' => 'menu-link-grid',
+                    'actions' => [Url::to(['bulk-delete']) => 'Delete']
                 ],
                 'columns' => [
                     ['class' => 'yii\grid\CheckboxColumn', 'options' => ['style' => 'width:10px']],
@@ -63,10 +62,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                     [
                         'class' => 'yeesoft\grid\columns\TitleActionColumn',
+                        'controller' => '/menu/link',
                         'attribute' => 'id',
                         'title' => function (MenuLink $model) {
                             return Html::a($model->label,
-                                ['view', 'id' => $model->id], ['data-pjax' => 0]);
+                                ['/menu/link/view', 'id' => $model->id], ['data-pjax' => 0]);
                         },
                         'format' => 'raw'
                     ],

@@ -8,17 +8,17 @@ class m150719_182533_add_menu_and_links extends Migration
 
     public function up()
     {
-       
+
         $this->insert('menu_link',
             ['id' => 'menu', 'menu_id' => 'admin-main-menu', 'label' => 'Menus',
                 'image' => 'align-justify', 'order' => 10]);
 
         $this->insert('menu_link',
-            ['id' => 'menu-link', 'menu_id' => 'admin-main-menu', 'link' => '/menu/link',
+            ['id' => 'menu-link', 'menu_id' => 'admin-main-menu', 'link' => '/menu/link/index',
                 'label' => 'Links', 'parent_id' => 'menu', 'order' => 2]);
 
         $this->insert('menu_link',
-            ['id' => 'menu-menu', 'menu_id' => 'admin-main-menu', 'link' => '/menu',
+            ['id' => 'menu-menu', 'menu_id' => 'admin-main-menu', 'link' => '/menu/default/index',
                 'label' => 'Menus', 'parent_id' => 'menu', 'order' => 1]);
     }
 

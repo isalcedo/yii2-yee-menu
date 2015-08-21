@@ -29,10 +29,7 @@ use yii\widgets\ActiveForm;
                         <?= $form->field($model, 'id')->textInput() ?>
                     <?php endif; ?>
 
-                    <?=
-                    $form->field($model, 'parent_id')->dropDownList($model->getSiblings(),
-                        ['class' => 'clearfix'])
-                    ?>
+                    <?= $form->field($model, 'parent_id')->dropDownList($model->getSiblings(), ['class' => 'clearfix']) ?>
 
                     <?= $form->field($model, 'label')->textInput(['maxlength' => true]) ?>
 
@@ -57,45 +54,31 @@ use yii\widgets\ActiveForm;
                             <span><?= $model->id ?></span>
                         </div>
 
-                        <?=
-                        $form->field($model, 'menu_id')->dropDownList(Menu::getList(),
-                            ['class' => 'clearfix'])
-                        ?>
+                        <?= $form->field($model, 'menu_id')->dropDownList(Menu::getList(), ['class' => 'clearfix']) ?>
 
-                        <?=
-                        $form->field($model, 'image')->dropDownList(MenuHelper::getIcons(),
-                            ['class' => 'clearfix glyphicon-select'])
-                        ?>
+                        <?= $form->field($model, 'image')->dropDownList(MenuHelper::getIcons(), ['class' => 'clearfix glyphicon-select']) ?>
 
                         <div class="form-group">
                             <?php if ($model->isNewRecord): ?>
-                                <?=
-                                Html::submitButton('<span class="glyphicon glyphicon-plus-sign"></span> Create',
-                                    ['class' => 'btn btn-success'])
-                                ?>
-                                <?=
-                                Html::a('<span class="glyphicon glyphicon-remove"></span> Cancel',
-                                    '../post',
+                                <?= Html::submitButton('<span class="glyphicon glyphicon-plus-sign"></span> Create', ['class' => 'btn btn-success']) ?>
+
+                                <?= Html::a('<span class="glyphicon glyphicon-remove"></span> Cancel',
+                                    ['/menu/link/index'],
                                     [
                                         'class' => 'btn btn-default',
-                                    ])
-                                ?>
+                                    ]) ?>
                             <?php else: ?>
-                                <?=
-                                Html::submitButton('<span class="glyphicon glyphicon-ok"></span> Save',
-                                    ['class' => 'btn btn-primary'])
-                                ?>
-                                <?=
-                                Html::a('<span class="glyphicon glyphicon-remove"></span> Delete',
-                                    ['delete', 'id' => $model->id],
+                                <?= Html::submitButton('<span class="glyphicon glyphicon-ok"></span> Save', ['class' => 'btn btn-primary']) ?>
+
+                                <?= Html::a('<span class="glyphicon glyphicon-remove"></span> Delete',
+                                    ['/menu/link/delete', 'id' => $model->id],
                                     [
                                         'class' => 'btn btn-default',
                                         'data' => [
                                             'confirm' => 'Are you sure you want to delete this item?',
                                             'method' => 'post',
                                         ],
-                                    ])
-                                ?>
+                                    ]) ?>
                             <?php endif; ?>
                         </div>
                     </div>

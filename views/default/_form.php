@@ -46,33 +46,23 @@ use yii\widgets\ActiveForm;
 
                         <div class="form-group">
                             <?php if ($model->isNewRecord): ?>
-                                <?=
-                                Html::submitButton('<span class="glyphicon glyphicon-plus-sign"></span> Create',
-                                    ['class' => 'btn btn-success'])
-                                ?>
-                                <?=
-                                Html::a('<span class="glyphicon glyphicon-remove"></span> Cancel',
-                                    '../post',
-                                    [
-                                        'class' => 'btn btn-default',
-                                    ])
-                                ?>
+                                <?= Html::submitButton('<span class="glyphicon glyphicon-plus-sign"></span> Create', ['class' => 'btn btn-success']) ?>
+
+                                <?= Html::a('<span class="glyphicon glyphicon-remove"></span> Cancel',
+                                    ['/menu/default/index'],
+                                    ['class' => 'btn btn-default']
+                                ) ?>
                             <?php else: ?>
-                                <?=
-                                Html::submitButton('<span class="glyphicon glyphicon-ok"></span> Save',
-                                    ['class' => 'btn btn-primary'])
-                                ?>
-                                <?=
-                                Html::a('<span class="glyphicon glyphicon-remove"></span> Delete',
-                                    ['delete', 'id' => $model->id],
+                                <?= Html::submitButton('<span class="glyphicon glyphicon-ok"></span> Save', ['class' => 'btn btn-primary']) ?>
+                                <?= Html::a('<span class="glyphicon glyphicon-remove"></span> Delete',
+                                    ['/menu/default/delete', 'id' => $model->id],
                                     [
                                         'class' => 'btn btn-default',
                                         'data' => [
                                             'confirm' => 'Are you sure you want to delete this item?',
                                             'method' => 'post',
                                         ],
-                                    ])
-                                ?>
+                                    ]) ?>
                             <?php endif; ?>
                         </div>
                     </div>

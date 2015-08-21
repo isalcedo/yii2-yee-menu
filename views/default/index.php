@@ -4,6 +4,7 @@ use webvimark\extensions\GridPageSize\GridPageSize;
 use yeesoft\grid\GridView;
 use yeesoft\helpers\Html;
 use yeesoft\models\Menu;
+use yeesoft\models\User;
 use yii\helpers\Url;
 use yii\widgets\Pjax;
 
@@ -19,10 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
         <div class="col-sm-12">
             <h3 class="lte-hide-title page-title"><?= Html::encode($this->title) ?></h3>
-            <?=
-            Html::a('Add New', ['create'],
-                ['class' => 'btn btn-sm btn-primary'])
-            ?>
+            <?= Html::a('Add New', ['/menu/default/create'], ['class' => 'btn btn-sm btn-primary']) ?>
         </div>
     </div>
 
@@ -45,8 +43,10 @@ $this->params['breadcrumbs'][] = $this->title;
             GridView::widget([
                 'id' => 'menu-grid',
                 'dataProvider' => $dataProvider,
-                'filterModel' => $searchModel, 'bulkActionOptions' => [
+                'filterModel' => $searchModel,
+                'bulkActionOptions' => [
                     'gridId' => 'menu-grid',
+                    'actions' => [Url::to(['bulk-delete']) => 'Delete']
                 ],
                 'bulkActionOptions' => [
                     'gridId' => 'menu-grid',
@@ -56,9 +56,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     ['class' => 'yii\grid\CheckboxColumn', 'options' => ['style' => 'width:10px']],
                     [
                         'class' => 'yeesoft\grid\columns\TitleActionColumn',
+                        'controller' => '/menu/default',
                         'title' => function (Menu $model) {
-                            return Html::a($model->title, ['/menu/link', 'SearchMenuLink[menu_id]' => $model->id],
-                                ['data-pjax' => 0]);
+                            if (User::hasPermission('viewMenuLinks')) {
+                                return Html::a($model->title, ['/menu/link/index', 'SearchMenuLink[menu_id]' => $model->id], ['data-pjax' => 0]);
+                            } else {
+                                return Html::a($model->title, ['/menu/default/view', 'id' => $model->id], ['data-pjax' => 0]);
+                            }
                         },
                     ],
                     'id',

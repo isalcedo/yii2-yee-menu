@@ -18,36 +18,28 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="panel-body">
 
             <p>
-                <?=
-                Html::a('Edit', ['update', 'id' => $model->id],
-                    ['class' => 'btn btn-sm btn-primary'])
-                ?>
-                <?=
-                Html::a('Delete', ['delete', 'id' => $model->id],
+                <?= Html::a('Edit', ['/menu/default/update', 'id' => $model->id], ['class' => 'btn btn-sm btn-primary']) ?>
+
+                <?= Html::a('Delete', ['/menu/default/delete', 'id' => $model->id],
                     [
                         'class' => 'btn btn-sm btn-default',
                         'data' => [
                             'confirm' => 'Are you sure you want to delete this item?',
                             'method' => 'post',
                         ],
-                    ])
-                ?>
-                <?=
-                Html::a('Add New', ['create'],
-                    ['class' => 'btn btn-sm btn-primary pull-right'])
-                ?>
+                    ]) ?>
+
+                <?= Html::a('Add New', ['/menu/default/create'], ['class' => 'btn btn-sm btn-primary pull-right']) ?>
             </p>
 
 
-            <?=
-            DetailView::widget([
+            <?= DetailView::widget([
                 'model' => $model,
                 'attributes' => [
                     'id',
                     'title',
                 ],
-            ])
-            ?>
+            ]) ?>
 
         </div>
     </div>
