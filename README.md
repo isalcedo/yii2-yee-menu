@@ -39,10 +39,10 @@ Configuration
 - In your backend config file
 
 ```php
-'menu'=>[
-	'comments' => [
-		'class' => 'yeesoft\menu\MenuModule',
-	],
+'modules'=>[
+    'menu' => [
+        'class' => 'yeesoft\menu\MenuModule',
+    ],
 ],
 ```
 
