@@ -3,7 +3,7 @@
 use yii\db\Migration;
 use yii\db\Schema;
 
-class m150825_21132_add_menu_permissions extends Migration
+class m150825_211322_add_menu_permissions extends Migration
 {
 
     public function up()
