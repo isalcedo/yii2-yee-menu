@@ -13,7 +13,7 @@ Also, this module includes a widget to render menus on frontend.
 Installation
 ------------
 
-Either run
+- Either run
 
 ```
 composer require --prefer-dist yeesoft/yii2-yee-menu "*"
@@ -27,6 +27,12 @@ or add
 
 to the require section of your `composer.json` file.
 
+- Run migrations:
+
+```php
+yii migrate --migrationPath=@vendor/yeesoft/yii2-yee-menu/migrations/
+```
+
 Configuration
 ------
 
@@ -38,12 +44,6 @@ Configuration
 		'class' => 'yeesoft\menu\MenuModule',
 	],
 ],
-```
-
-- Run migrations
-
-```php
-yii migrate --migrationPath=@vendor/yeesoft/yii2-yee-menu/migrations/
 ```
 
 Usage on frontend
