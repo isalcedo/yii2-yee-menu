@@ -18,7 +18,7 @@ class SearchMenuLink extends MenuLink
     public function rules()
     {
         return [
-            [['order'], 'integer'],
+            [['order', 'alwaysVisible'], 'integer'],
             [['id', 'menu_id', 'parent_id', 'link', 'label', 'image'], 'safe'],
         ];
     }
@@ -57,6 +57,7 @@ class SearchMenuLink extends MenuLink
 
         $query->andFilterWhere([
             'order' => $this->order,
+            'alwaysVisible' => $this->alwaysVisible,
         ]);
 
         $query->andFilterWhere(['like', 'id', $this->id])

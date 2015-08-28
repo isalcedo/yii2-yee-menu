@@ -54,6 +54,8 @@ use yii\widgets\ActiveForm;
                             <span><?= $model->id ?></span>
                         </div>
 
+                        <?= $form->field($model, 'alwaysVisible')->checkbox() ?>
+
                         <?= $form->field($model, 'menu_id')->dropDownList(Menu::getList(), ['class' => 'clearfix']) ?>
 
                         <?= $form->field($model, 'image')->dropDownList(MenuHelper::getIcons(), ['class' => 'clearfix glyphicon-select']) ?>
