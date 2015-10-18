@@ -58,12 +58,12 @@ class SearchMenuLink extends MenuLink
         $query->andFilterWhere([
             'order' => $this->order,
             'alwaysVisible' => $this->alwaysVisible,
+            'menu_id' => $this->menu_id,
         ]);
 
         $query->andFilterWhere(['like', 'id', $this->id])
             ->andFilterWhere(['like', 'link', $this->link])
             ->andFilterWhere(['like', 'label', $this->label])
-            ->andFilterWhere(['like', 'menu_id', $this->menu_id])
             ->andFilterWhere(['like', 'parent_id', $this->parent_id])
             ->andFilterWhere(['like', 'image', $this->image]);
 

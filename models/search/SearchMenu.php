@@ -41,7 +41,7 @@ class SearchMenu extends Menu
      */
     public function search($params)
     {
-        $query = Menu::find();
+        $query = Menu::find()->joinWith('translations');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

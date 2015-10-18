@@ -12,7 +12,7 @@ class DefaultController extends BaseController
 {
     public $modelClass = 'yeesoft\models\Menu';
     public $modelSearchClass = 'yeesoft\menu\models\search\SearchMenu';
-    public $disabledActions = ['bulk-activate', 'bulk-deactivate', 'toggle-attribute'];
+    public $disabledActions = ['view', 'bulk-activate', 'bulk-deactivate', 'toggle-attribute'];
 
     protected function getRedirectPage($action, $model = null)
     {

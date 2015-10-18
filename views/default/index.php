@@ -3,8 +3,10 @@
 use webvimark\extensions\GridPageSize\GridPageSize;
 use yeesoft\grid\GridView;
 use yeesoft\helpers\Html;
+use yeesoft\menu\MenuModule;
 use yeesoft\models\Menu;
 use yeesoft\models\User;
+use yeesoft\Yee;
 use yii\helpers\Url;
 use yii\widgets\Pjax;
 
@@ -12,7 +14,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel yeesoft\menu\models\search\SearchMenu */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Menus';
+$this->title = MenuModule::t('menu', 'Menus');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="menu-index">
@@ -20,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
         <div class="col-sm-12">
             <h3 class="lte-hide-title page-title"><?= Html::encode($this->title) ?></h3>
-            <?= Html::a('Add New', ['/menu/default/create'], ['class' => 'btn btn-sm btn-primary']) ?>
+            <?= Html::a(Yee::t('yee', 'Add New'), ['/menu/default/create'], ['class' => 'btn btn-sm btn-primary']) ?>
         </div>
     </div>
 
@@ -39,18 +41,13 @@ $this->params['breadcrumbs'][] = $this->title;
             ])
             ?>
 
-            <?=
-            GridView::widget([
+            <?= GridView::widget([
                 'id' => 'menu-grid',
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
                 'bulkActionOptions' => [
                     'gridId' => 'menu-grid',
-                    'actions' => [Url::to(['bulk-delete']) => 'Delete']
-                ],
-                'bulkActionOptions' => [
-                    'gridId' => 'menu-grid',
-                    'actions' => [Url::to(['bulk-delete']) => 'Delete']
+                    'actions' => [Url::to(['bulk-delete']) => Yee::t('yee', 'Delete')]
                 ],
                 'columns' => [
                     ['class' => 'yii\grid\CheckboxColumn', 'options' => ['style' => 'width:10px']],
@@ -64,11 +61,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                 return Html::a($model->title, ['/menu/default/view', 'id' => $model->id], ['data-pjax' => 0]);
                             }
                         },
+                        'buttonsTemplate' => '{update} {delete}',
                     ],
                     'id',
                 ],
-            ]);
-            ?>
+            ]) ?>
 
             <?php Pjax::end() ?>
         </div>

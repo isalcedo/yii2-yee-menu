@@ -1,18 +1,19 @@
 <?php
 
+use yeesoft\menu\MenuModule;
+use yeesoft\Yee;
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model yeesoft\menu\models\Menu */
 
-$this->title = 'Update Menu: ' . ' ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Menus', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = Yee::t('yee', 'Update "{item}"', ['item' => $model->title]);
+$this->params['breadcrumbs'][] = ['label' => MenuModule::t('menu', 'Menus'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="menu-update">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h3><?= Html::encode($this->title) ?></h3>
 
     <?= $this->render('_form', compact('model')) ?>
 
