@@ -41,7 +41,7 @@ class SearchMenuLink extends MenuLink
      */
     public function search($params)
     {
-        $query = MenuLink::find();
+        $query = MenuLink::find()->joinWith('translations');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

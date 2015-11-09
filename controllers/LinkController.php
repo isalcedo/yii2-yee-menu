@@ -12,7 +12,7 @@ class LinkController extends BaseController
 {
     public $modelClass = 'yeesoft\models\MenuLink';
     public $modelSearchClass = 'yeesoft\menu\models\search\SearchMenuLink';
-    public $disabledActions = ['bulk-activate', 'bulk-deactivate', 'toggle-attribute'];
+    public $disabledActions = ['view', 'bulk-activate', 'bulk-deactivate', 'toggle-attribute'];
 
     protected function getRedirectPage($action, $model = null)
     {

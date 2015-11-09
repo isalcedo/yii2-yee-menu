@@ -1,12 +1,13 @@
 <?php
 
 use yii\helpers\Html;
+use yeesoft\menu\MenuModule;
 
 /* @var $this yii\web\View */
 /* @var $model yeesoft\menu\models\MenuLink */
 
-$this->title = 'Create Menu Link';
-$this->params['breadcrumbs'][] = ['label' => 'Menu Links', 'url' => ['index']];
+$this->title = MenuModule::t('menu', 'Create Menu Link');
+$this->params['breadcrumbs'][] = ['label' => MenuModule::t('menu', 'Menus'), 'url' => ['/menu/default/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

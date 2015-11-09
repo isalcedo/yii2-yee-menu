@@ -55,8 +55,7 @@ class SearchMenu extends Menu
             return $dataProvider;
         }
 
-
-        $query->andFilterWhere(['like', 'id', $this->id])
+        $query->andFilterWhere(['=', 'id', $this->id])
             ->andFilterWhere(['like', 'title', $this->title]);
 
         return $dataProvider;

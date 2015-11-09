@@ -3,12 +3,12 @@
 use webvimark\extensions\GridPageSize\GridPageSize;
 use yeesoft\grid\GridView;
 use yeesoft\helpers\Html;
-use yeesoft\menu\MenuModule;
 use yeesoft\models\Menu;
 use yeesoft\models\User;
-use yeesoft\Yee;
 use yii\helpers\Url;
 use yii\widgets\Pjax;
+use yeesoft\Yee;
+use yeesoft\menu\MenuModule;
 
 /* @var $this yii\web\View */
 /* @var $searchModel yeesoft\menu\models\search\SearchMenu */
