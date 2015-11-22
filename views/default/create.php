@@ -1,14 +1,12 @@
 <?php
 
 use yii\helpers\Html;
-use yeesoft\Yee;
-use yeesoft\menu\MenuModule;
 
 /* @var $this yii\web\View */
 /* @var $model yeesoft\menu\models\Menu */
 
-$this->title = Yee::t('yee', 'Create {item}',['item' => MenuModule::t('menu', 'Menu')]);
-$this->params['breadcrumbs'][] = ['label' => MenuModule::t('menu', 'Menus'), 'url' => ['index']];
+$this->title = Yii::t('yee', 'Create {item}',['item' => Yii::t('yee/menu', 'Menu')]);
+$this->params['breadcrumbs'][] = ['label' => Yii::t('yee/menu', 'Menus'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

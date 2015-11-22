@@ -6,7 +6,6 @@ use yeesoft\models\Menu;
 use yeesoft\widgets\ActiveForm;
 use yeesoft\helpers\LanguageHelper;
 use yeesoft\widgets\LanguagePills;
-use yeesoft\Yee;
 
 /* @var $this yii\web\View */
 /* @var $model yeesoft\menu\models\MenuLink */
@@ -68,11 +67,11 @@ use yeesoft\Yee;
 
                         <div class="form-group">
                             <?php if ($model->isNewRecord): ?>
-                                <?= Html::submitButton(Yee::t('yee', 'Create'), ['class' => 'btn btn-success']) ?>
-                                <?= Html::a(Yee::t('yee', 'Cancel'), ['/menu/link/index'], ['class' => 'btn btn-default']) ?>
+                                <?= Html::submitButton(Yii::t('yee', 'Create'), ['class' => 'btn btn-success']) ?>
+                                <?= Html::a(Yii::t('yee', 'Cancel'), ['/menu/link/index'], ['class' => 'btn btn-default']) ?>
                             <?php else: ?>
-                                <?= Html::submitButton(Yee::t('yee', 'Save'), ['class' => 'btn btn-primary']) ?>
-                                <?= Html::a(Yee::t('yee', 'Delete'),
+                                <?= Html::submitButton(Yii::t('yee', 'Save'), ['class' => 'btn btn-primary']) ?>
+                                <?= Html::a(Yii::t('yee', 'Delete'),
                                     ['/menu/link/delete', 'id' => $model->id], [
                                         'class' => 'btn btn-default',
                                         'data' => [

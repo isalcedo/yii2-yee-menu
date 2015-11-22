@@ -6,8 +6,8 @@ use yeesoft\menu\MenuModule;
 /* @var $this yii\web\View */
 /* @var $model yeesoft\menu\models\MenuLink */
 
-$this->title = MenuModule::t('menu', 'Create Menu Link');
-$this->params['breadcrumbs'][] = ['label' => MenuModule::t('menu', 'Menus'), 'url' => ['/menu/default/index']];
+$this->title = Yii::t('yee/menu', 'Create Menu Link');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('yee/menu', 'Menus'), 'url' => ['/menu/default/index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 

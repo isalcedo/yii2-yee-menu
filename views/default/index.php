@@ -7,14 +7,13 @@ use yeesoft\models\Menu;
 use yeesoft\models\User;
 use yii\helpers\Url;
 use yii\widgets\Pjax;
-use yeesoft\Yee;
-use yeesoft\menu\MenuModule;
+use Yii;
 
 /* @var $this yii\web\View */
 /* @var $searchModel yeesoft\menu\models\search\SearchMenu */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = MenuModule::t('menu', 'Menus');
+$this->title = Yii::t('yee/menu', 'Menus');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="menu-index">
@@ -22,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
         <div class="col-sm-12">
             <h3 class="lte-hide-title page-title"><?= Html::encode($this->title) ?></h3>
-            <?= Html::a(Yee::t('yee', 'Add New'), ['/menu/default/create'], ['class' => 'btn btn-sm btn-primary']) ?>
+            <?= Html::a(Yii::t('yee', 'Add New'), ['/menu/default/create'], ['class' => 'btn btn-sm btn-primary']) ?>
         </div>
     </div>
 
@@ -47,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filterModel' => $searchModel,
                 'bulkActionOptions' => [
                     'gridId' => 'menu-grid',
-                    'actions' => [Url::to(['bulk-delete']) => Yee::t('yee', 'Delete')]
+                    'actions' => [Url::to(['bulk-delete']) => Yii::t('yee', 'Delete')]
                 ],
                 'columns' => [
                     ['class' => 'yii\grid\CheckboxColumn', 'options' => ['style' => 'width:10px']],
