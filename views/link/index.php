@@ -1,13 +1,14 @@
 <?php
 
-use webvimark\extensions\GridPageSize\GridPageSize;
+use yeesoft\grid\GridPageSize;
 use yeesoft\grid\GridView;
 use yeesoft\helpers\Html;
 use yeesoft\helpers\MenuHelper;
+use yeesoft\models\Menu;
 use yeesoft\models\MenuLink;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 use yii\widgets\Pjax;
-use yeesoft\menu\MenuModule;
 
 /* @var $this yii\web\View */
 /* @var $searchModel yeesoft\menu\models\search\SearchMenuLink */
@@ -36,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             </div>
 
-            <?php Pjax::begin([ 'id' => 'menu-link-grid-pjax' ]) ?>
+            <?php Pjax::begin(['id' => 'menu-link-grid-pjax']) ?>
 
             <?=
             GridView::widget([
@@ -69,9 +70,20 @@ $this->params['breadcrumbs'][] = $this->title;
                         },
                         'format' => 'raw',
                         'buttonsTemplate' => '{update} {delete}',
+                        'options' => ['style' => 'width:220px']
                     ],
-                    'menu_id',
+                    [
+                        'attribute' => 'menu_id',
+                        'filter' => ArrayHelper::merge(['' => 'ss'], Menu::getMenus()),
+                        'value' => function (MenuLink $model) {
+                            return $model->menu->title;
+                        },
+                        'format' => 'raw',
+                        'filterInputOptions' => [],
+                    ],
                     'link',
+
+
                     'parent_id',
                     'order',
                 ],

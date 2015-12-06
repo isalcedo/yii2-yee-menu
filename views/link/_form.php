@@ -1,10 +1,10 @@
 <?php
 
 use yeesoft\helpers\Html;
+use yeesoft\helpers\LanguageHelper;
 use yeesoft\helpers\MenuHelper;
 use yeesoft\models\Menu;
 use yeesoft\widgets\ActiveForm;
-use yeesoft\helpers\LanguageHelper;
 use yeesoft\widgets\LanguagePills;
 
 /* @var $this yii\web\View */
@@ -61,7 +61,7 @@ use yeesoft\widgets\LanguagePills;
 
                         <?= $form->field($model, 'alwaysVisible')->checkbox() ?>
 
-                        <?= $form->field($model, 'menu_id')->dropDownList(Menu::getList(), ['class' => 'clearfix']) ?>
+                        <?= $form->field($model, 'menu_id')->dropDownList(Menu::getMenus(), ['class' => 'clearfix']) ?>
 
                         <?= $form->field($model, 'image')->dropDownList(MenuHelper::getIcons(), ['class' => 'clearfix glyphicon-select']) ?>
 

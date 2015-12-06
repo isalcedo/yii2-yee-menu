@@ -19,7 +19,8 @@ class SearchMenu extends Menu
     public function rules()
     {
         return [
-            [['id', 'title'], 'safe'],
+            [['created_by', 'updated_by'], 'integer'],
+            [['id', 'title', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -45,6 +46,14 @@ class SearchMenu extends Menu
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => Yii::$app->request->cookies->getValue('_grid_page_size', 20),
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'id' => SORT_DESC,
+                ],
+            ],
         ]);
 
         $this->load($params);
@@ -55,8 +64,15 @@ class SearchMenu extends Menu
             return $dataProvider;
         }
 
-        $query->andFilterWhere(['=', 'id', $this->id])
-            ->andFilterWhere(['like', 'title', $this->title]);
+        $query->andFilterWhere([
+            'id' => $this->id,
+            'created_by' => $this->created_by,
+            'updated_by' => $this->updated_by,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+        ]);
+
+        $query->andFilterWhere(['like', 'title', $this->title]);
 
         return $dataProvider;
     }

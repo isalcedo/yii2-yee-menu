@@ -3,6 +3,7 @@
 namespace yeesoft\menu\models\search;
 
 use yeesoft\models\MenuLink;
+use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
@@ -18,8 +19,8 @@ class SearchMenuLink extends MenuLink
     public function rules()
     {
         return [
-            [['order', 'alwaysVisible'], 'integer'],
-            [['id', 'menu_id', 'parent_id', 'link', 'label', 'image'], 'safe'],
+            [['order', 'alwaysVisible', 'created_by', 'updated_by'], 'integer'],
+            [['id', 'menu_id', 'parent_id', 'link', 'label', 'image', 'created_at', 'updated_at'], 'safe'],
         ];
     }
 
@@ -45,6 +46,14 @@ class SearchMenuLink extends MenuLink
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => Yii::$app->request->cookies->getValue('_grid_page_size', 20),
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'id' => SORT_DESC,
+                ],
+            ],
         ]);
 
         $this->load($params);
@@ -59,6 +68,10 @@ class SearchMenuLink extends MenuLink
             'order' => $this->order,
             'alwaysVisible' => $this->alwaysVisible,
             'menu_id' => $this->menu_id,
+            'created_by' => $this->created_by,
+            'updated_by' => $this->updated_by,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ]);
 
         $query->andFilterWhere(['like', 'id', $this->id])

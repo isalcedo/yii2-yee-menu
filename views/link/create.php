@@ -1,7 +1,6 @@
 <?php
 
 use yii\helpers\Html;
-use yeesoft\menu\MenuModule;
 
 /* @var $this yii\web\View */
 /* @var $model yeesoft\menu\models\MenuLink */

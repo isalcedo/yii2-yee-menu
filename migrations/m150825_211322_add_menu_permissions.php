@@ -39,6 +39,8 @@ class m150825_211322_add_menu_permissions extends Migration
         $this->insert('auth_item', ['name' => 'editMenus', 'type' => '2', 'description' => 'Edit menus', 'group_code' => 'menuManagement', 'created_at' => '1440180000', 'updated_at' => '1440180000']);
         $this->insert('auth_item', ['name' => 'viewMenuLinks', 'type' => '2', 'description' => 'View menu links', 'group_code' => 'menuManagement', 'created_at' => '1440180000', 'updated_at' => '1440180000']);
         $this->insert('auth_item', ['name' => 'viewMenus', 'type' => '2', 'description' => 'View menus', 'group_code' => 'menuManagement', 'created_at' => '1440180000', 'updated_at' => '1440180000']);
+        $this->insert('auth_item', ['name' => 'fullMenuAccess', 'type' => '2', 'description' => 'Manage other users\' menus', 'group_code' => 'menuManagement', 'created_at' => '1440180000', 'updated_at' => '1440180000']);
+        $this->insert('auth_item', ['name' => 'fullMenuLinkAccess', 'type' => '2', 'description' => 'Manage other users\' menu links', 'group_code' => 'menuManagement', 'created_at' => '1440180000', 'updated_at' => '1440180000']);
 
         $this->insert('auth_item_child', ['parent' => 'deleteMenus', 'child' => '/admin/menu/default/bulk-delete']);
         $this->insert('auth_item_child', ['parent' => 'createMenus', 'child' => '/admin/menu/default/create']);
@@ -71,6 +73,8 @@ class m150825_211322_add_menu_permissions extends Migration
         $this->insert('auth_item_child', ['parent' => 'administrator', 'child' => 'editMenuLinks']);
         $this->insert('auth_item_child', ['parent' => 'administrator', 'child' => 'editMenus']);
         $this->insert('auth_item_child', ['parent' => 'administrator', 'child' => 'viewMenuLinks']);
+        $this->insert('auth_item_child', ['parent' => 'administrator', 'child' => 'fullMenuAccess']);
+        $this->insert('auth_item_child', ['parent' => 'administrator', 'child' => 'fullMenuLinkAccess']);
     }
 
     public function down()
@@ -136,6 +140,8 @@ class m150825_211322_add_menu_permissions extends Migration
         $this->delete('auth_item', ['name' => 'editMenus']);
         $this->delete('auth_item', ['name' => 'viewMenuLinks']);
         $this->delete('auth_item', ['name' => 'viewMenus']);
+        $this->delete('auth_item', ['name' => 'fullMenuAccess']);
+        $this->delete('auth_item', ['name' => 'fullMenuLinkAccess']);
 
         $this->delete('auth_item_group', ['code' => 'menuManagement']);
     }
