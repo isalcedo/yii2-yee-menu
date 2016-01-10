@@ -47,7 +47,7 @@ class SearchMenu extends Menu
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => [
-                'pageSize' => Yii::$app->request->cookies->getValue('_grid_page_size', 20),
+                'pageSize' => -1,
             ],
             'sort' => [
                 'defaultOrder' => [

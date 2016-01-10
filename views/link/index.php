@@ -3,7 +3,7 @@
 use yeesoft\grid\GridPageSize;
 use yeesoft\grid\GridView;
 use yeesoft\helpers\Html;
-use yeesoft\helpers\MenuHelper;
+use yeesoft\helpers\FA;
 use yeesoft\models\Menu;
 use yeesoft\models\MenuLink;
 use yii\helpers\ArrayHelper;
@@ -53,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'attribute' => 'image',
                         'value' => function (MenuLink $model) {
-                            return MenuHelper::generateIcon($model->image);
+                            return FA::icon($model->image)->fixedWidth();
                         },
                         'format' => 'raw',
                         'contentOptions' => [
@@ -74,7 +74,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                     [
                         'attribute' => 'menu_id',
-                        'filter' => ArrayHelper::merge(['' => 'ss'], Menu::getMenus()),
+                        'filter' => ArrayHelper::merge(['' => Yii::t('yee', 'Not Selected')], Menu::getMenus()),
                         'value' => function (MenuLink $model) {
                             return $model->menu->title;
                         },

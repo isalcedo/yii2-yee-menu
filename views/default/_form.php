@@ -28,11 +28,11 @@ use yeesoft\widgets\LanguagePills;
                         <?= LanguagePills::widget() ?>
                     <?php endif; ?>
 
+                    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+
                     <?php if ($model->isNewRecord): ?>
                         <?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>
                     <?php endif; ?>
-
-                    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
                 </div>
             </div>

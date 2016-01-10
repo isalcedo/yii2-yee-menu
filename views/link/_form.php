@@ -2,7 +2,7 @@
 
 use yeesoft\helpers\Html;
 use yeesoft\helpers\LanguageHelper;
-use yeesoft\helpers\MenuHelper;
+use yeesoft\helpers\FA;
 use yeesoft\models\Menu;
 use yeesoft\widgets\ActiveForm;
 use yeesoft\widgets\LanguagePills;
@@ -31,17 +31,19 @@ use yeesoft\widgets\LanguagePills;
                         <?= LanguagePills::widget() ?>
                     <?php endif; ?>
 
+                    <?= $form->field($model, 'label')->textInput(['maxlength' => true]) ?>
+
                     <?php if ($model->isNewRecord): ?>
                         <?= $form->field($model, 'id')->textInput() ?>
                     <?php endif; ?>
 
-                    <?= $form->field($model, 'parent_id')->dropDownList($model->getSiblings(), ['class' => 'clearfix']) ?>
+                    <?php //$form->field($model, 'parent_id')->dropDownList($model->getSiblings(), ['class' => 'clearfix']) ?>
 
-                    <?= $form->field($model, 'label')->textInput(['maxlength' => true]) ?>
+                    
 
                     <?= $form->field($model, 'link')->textInput(['maxlength' => true]) ?>
 
-                    <?= $form->field($model, 'order')->textInput() ?>
+                    <?php // $form->field($model, 'order')->textInput() ?>
 
                 </div>
             </div>
@@ -52,18 +54,25 @@ use yeesoft\widgets\LanguagePills;
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="record-info">
-                        <div class="form-group clearfix">
-                            <label class="control-label" style="float: left; padding-right: 5px;">
-                                <?= $model->attributeLabels()['id'] ?> :
-                            </label>
-                            <span><?= $model->id ?></span>
-                        </div>
-
+                        <?php if (!$model->isNewRecord): ?>
+                            <div class="form-group clearfix">
+                                <label class="control-label" style="float: left; padding-right: 5px;">
+                                    <?= $model->attributeLabels()['id'] ?> :
+                                </label>
+                                <span><?= $model->id ?></span>
+                            </div>
+                        <?php endif; ?>
+                        
                         <?= $form->field($model, 'alwaysVisible')->checkbox() ?>
 
-                        <?= $form->field($model, 'menu_id')->dropDownList(Menu::getMenus(), ['class' => 'clearfix']) ?>
-
-                        <?= $form->field($model, 'image')->dropDownList(MenuHelper::getIcons(), ['class' => 'clearfix glyphicon-select']) ?>
+                        <?php if ($model->isNewRecord): ?>
+                            <?= $form->field($model, 'menu_id')->dropDownList(Menu::getMenus(), ['class' => 'clearfix']) ?>
+                        <?php endif; ?>
+                        
+                        <?= $form->field($model, 'image')->dropDownList(FA::getIconsList(), [
+                            'class' => 'clearfix non-styler form-control fa-font-family',
+                            'encode' => false,
+                        ]) ?>
 
                         <div class="form-group">
                             <?php if ($model->isNewRecord): ?>
@@ -91,3 +100,20 @@ use yeesoft\widgets\LanguagePills;
     <?php ActiveForm::end(); ?>
 
 </div>
+<?php
+$js = <<<JS
+
+    $('#menulink-image-styler ul li').each(function(){
+        var glyphicon = $(this).text();
+        $(this).addClass('glyphicon').addClass('glyphicon-'+glyphicon).html('');
+    });
+    $('#menulink-image-styler ul li:first').html('No Icon');
+
+    setTimeout(function(){
+       
+    },1000);
+    
+
+JS;
+$this->registerJs($js);
+?>
