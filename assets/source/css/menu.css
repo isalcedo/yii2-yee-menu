@@ -1,6 +1,5 @@
 .sortable-container {
     position: relative;
-    cursor: move;
 }
 
 .sortable-container > .sortable {
@@ -22,6 +21,7 @@
     padding-bottom: 68px;
     height: 100%;
     z-index: 1;
+    cursor: move;
 }
 
 .sortable-item {
@@ -42,10 +42,8 @@
     top: 10px;
     left: 12px;
     z-index: 10;
-    
     font-size: 24px;
     color: #ddd;
-    
 }
 
 .sortable-item .sortable-drag-icon:hover {
@@ -54,17 +52,10 @@
 
 .sortable-item .sortable-item-content {
     position: absolute;
-    
     margin: 0;
     padding: 7px 0 4px 50px;
     height: 44px;
     width: 400px;
-
-    
-    pointer-events: none;
-    
-    
-
     -moz-box-shadow:inset 0px 1px 0px 0px #fff;
     -webkit-box-shadow:inset 0px 1px 0px 0px #fff;
     box-shadow:inset 0px 1px 0px 0px #fff;
@@ -78,14 +69,12 @@
     cursor:pointer;
     color:#333;
     text-decoration:none;
-    
     line-height:14px;
 }
 
 .sortable-item .sortable-item-content .menu-link {
     font-size: 0.9em;
 }
-
 
 .menu-link-alert {
     margin-bottom: 0 !important;
@@ -106,7 +95,6 @@
 .sortable-item-content:hover .menu-link-actions {
     display: block;
 }
-
 
 .fa-spin-custom, .glyphicon-spin {
   -webkit-animation: spin 1000ms infinite linear;
