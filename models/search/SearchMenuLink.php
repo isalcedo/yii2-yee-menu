@@ -66,7 +66,7 @@ class SearchMenuLink extends MenuLink
             $this->$key = $value;
         }
 
-        $restrictLinkAccess = (YeeHelper::isImplemented(MenuLink::className(), OwnerAccess::class)
+        $restrictLinkAccess = (YeeHelper::isImplemented(MenuLink::className(), OwnerAccess::CLASSNAME)
             && !User::hasPermission(MenuLink::getFullAccessPermission()));
 
         if (!$this->validate()) {

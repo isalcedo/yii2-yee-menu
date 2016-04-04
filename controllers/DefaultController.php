@@ -57,7 +57,7 @@ class DefaultController extends BaseController
         $searchModel = $this->modelSearchClass ? new $this->modelSearchClass : null;
         $searchLinkModel = $this->modelLinkSearchClass ? new $this->modelLinkSearchClass : null;
 
-        $restrictAccess = (YeeHelper::isImplemented($modelClass, OwnerAccess::class)
+        $restrictAccess = (YeeHelper::isImplemented($modelClass, OwnerAccess::CLASSNAME)
             && !User::hasPermission($modelClass::getFullAccessPermission()));
 
         if ($searchModel) {
