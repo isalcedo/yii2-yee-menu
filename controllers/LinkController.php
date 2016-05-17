@@ -3,9 +3,7 @@
 namespace yeesoft\menu\controllers;
 
 use yeesoft\controllers\admin\BaseController;
-use yeesoft\menu\models\search\SearchMenuLink;
 use yii\helpers\StringHelper;
-use Yii;
 
 /**
  * MenuLinkController implements the CRUD actions for Post model.

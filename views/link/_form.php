@@ -1,7 +1,6 @@
 <?php
 
 use yeesoft\helpers\Html;
-use yeesoft\helpers\LanguageHelper;
 use yeesoft\helpers\FA;
 use yeesoft\models\Menu;
 use yeesoft\widgets\ActiveForm;
@@ -9,7 +8,7 @@ use yeesoft\widgets\LanguagePills;
 
 /* @var $this yii\web\View */
 /* @var $model yeesoft\menu\models\MenuLink */
-/* @var $form yii\widgets\ActiveForm */
+/* @var $form yeesoft\widgets\ActiveForm */
 ?>
 
 <div class="menu-link-form">
@@ -27,7 +26,7 @@ use yeesoft\widgets\LanguagePills;
             <div class="panel panel-default">
                 <div class="panel-body">
 
-                    <?php if (LanguageHelper::isMultilingual($model)): ?>
+                    <?php if ($model->isMultilingual()): ?>
                         <?= LanguagePills::widget() ?>
                     <?php endif; ?>
 

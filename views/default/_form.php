@@ -1,7 +1,6 @@
 <?php
 
 use yeesoft\helpers\Html;
-use yeesoft\helpers\LanguageHelper;
 use yeesoft\widgets\ActiveForm;
 use yeesoft\widgets\LanguagePills;
 
@@ -24,7 +23,7 @@ use yeesoft\widgets\LanguagePills;
             <div class="panel panel-default">
                 <div class="panel-body">
 
-                    <?php if (LanguageHelper::isMultilingual($model)): ?>
+                    <?php if ($model->isMultilingual()): ?>
                         <?= LanguagePills::widget() ?>
                     <?php endif; ?>
 

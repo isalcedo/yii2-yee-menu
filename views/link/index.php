@@ -49,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'actions' => [Url::to(['bulk-delete']) => Yii::t('yee', 'Delete')]
                 ],
                 'columns' => [
-                    ['class' => 'yii\grid\CheckboxColumn', 'options' => ['style' => 'width:10px']],
+                    ['class' => 'yeesoft\grid\CheckboxColumn', 'options' => ['style' => 'width:10px']],
                     [
                         'attribute' => 'image',
                         'value' => function (MenuLink $model) {
@@ -79,7 +79,6 @@ $this->params['breadcrumbs'][] = $this->title;
                             return $model->menu->title;
                         },
                         'format' => 'raw',
-                        'filterInputOptions' => [],
                     ],
                     'link',
 

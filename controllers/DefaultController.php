@@ -10,6 +10,7 @@ use yeesoft\models\OwnerAccess;
 use yeesoft\models\User;
 use yii\helpers\ArrayHelper;
 use yii\filters\VerbFilter;
+use yeesoft\models\MenuLink;
 
 /**
  * MenuController implements the CRUD actions for Post model.
@@ -95,7 +96,8 @@ class DefaultController extends BaseController
             }
 
             $select = implode(' UNION ', $select);
-            $db->createCommand("UPDATE menu_link m INNER JOIN ($select)t ON m.id=t.id "
+            $menuLinkTable = MenuLink::tableName();
+            $db->createCommand("UPDATE $menuLinkTable m INNER JOIN ($select)t ON m.id=t.id "
                 . " SET m.order=t.order, m.parent_id=t.parent_id", $params)->execute();
 
         }
