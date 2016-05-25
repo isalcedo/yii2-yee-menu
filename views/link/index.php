@@ -76,7 +76,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'attribute' => 'menu_id',
                         'filter' => ArrayHelper::merge(['' => Yii::t('yee', 'Not Selected')], Menu::getMenus()),
                         'value' => function (MenuLink $model) {
-                            return $model->menu->title;
+                            return ($model->menu instanceof Menu) ? $model->menu->title : Yii::t('yii', '(not set)');
                         },
                         'format' => 'raw',
                     ],
