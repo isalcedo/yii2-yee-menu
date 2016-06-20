@@ -65,17 +65,17 @@ use yeesoft\widgets\LanguagePills;
                         <?= $form->field($model, 'alwaysVisible')->checkbox() ?>
 
                         <?php if ($model->isNewRecord): ?>
-                            <?= $form->field($model, 'menu_id')->dropDownList(Menu::getMenus(), ['class' => 'clearfix']) ?>
+                            <?= $form->field($model, 'menu_id')->dropDownList(Menu::getMenus(), ['class' => 'clearfix form-control']) ?>
                         <?php endif; ?>
                         
                         <?= $form->field($model, 'image')->dropDownList(FA::getIconsList(), [
-                            'class' => 'clearfix non-styler form-control fa-font-family',
+                            'class' => 'clearfix form-control fa-font-family',
                             'encode' => false,
                         ]) ?>
 
                         <div class="form-group">
                             <?php if ($model->isNewRecord): ?>
-                                <?= Html::submitButton(Yii::t('yee', 'Create'), ['class' => 'btn btn-success']) ?>
+                                <?= Html::submitButton(Yii::t('yee', 'Create'), ['class' => 'btn btn-primary']) ?>
                                 <?= Html::a(Yii::t('yee', 'Cancel'), ['/menu/link/index'], ['class' => 'btn btn-default']) ?>
                             <?php else: ?>
                                 <?= Html::submitButton(Yii::t('yee', 'Save'), ['class' => 'btn btn-primary']) ?>
