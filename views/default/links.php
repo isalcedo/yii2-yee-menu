@@ -3,10 +3,10 @@
 use yii\widgets\ListView;
 
 /* @var $this yii\web\View */
-/* @var $searchLinkModel yeesoft\menu\models\search\SearchMenuLink */
+/* @var $searchLinkModel yeesoft\menu\models\SearchMenuLink */
 
 $dataProvider = $searchLinkModel->search((is_array($searchParams) ? $searchParams : []));
-$queryParams  = Yii::$app->getRequest()->getQueryParams();
+$queryParams = Yii::$app->getRequest()->getQueryParams();
 ?>
 
 <?php if (empty($queryParams)): ?>
@@ -34,8 +34,8 @@ $queryParams  = Yii::$app->getRequest()->getQueryParams();
             'class' => 'sortable-item',
         ],
         'itemView' => function ($model, $key, $index, $widget) use ($searchLinkModel) {
-        return $this->render('link', ['model' => $model, 'searchLinkModel' => $searchLinkModel]);
-    },
+            return $this->render('link', ['model' => $model, 'searchLinkModel' => $searchLinkModel]);
+        },
     ])
     ?>
 <?php endif; ?>

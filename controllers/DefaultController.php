@@ -18,8 +18,8 @@ use yeesoft\models\MenuLink;
 class DefaultController extends BaseController
 {
     public $modelClass = 'yeesoft\models\Menu';
-    public $modelSearchClass = 'yeesoft\menu\models\search\SearchMenu';
-    public $modelLinkSearchClass = 'yeesoft\menu\models\search\SearchMenuLink';
+    public $modelSearchClass = 'yeesoft\menu\models\SearchMenu';
+    public $modelLinkSearchClass = 'yeesoft\menu\models\SearchMenuLink';
     public $disabledActions = ['view', 'bulk-activate', 'bulk-deactivate', 'toggle-attribute'];
 
     public function behaviors()

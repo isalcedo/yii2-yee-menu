@@ -11,7 +11,7 @@ use yii\helpers\StringHelper;
 class LinkController extends BaseController
 {
     public $modelClass = 'yeesoft\models\MenuLink';
-    public $modelSearchClass = 'yeesoft\menu\models\search\SearchMenuLink';
+    public $modelSearchClass = 'yeesoft\menu\models\SearchMenuLink';
     public $enableOnlyActions = ['delete', 'update', 'create'];
 
     protected function getRedirectPage($action, $model = null)

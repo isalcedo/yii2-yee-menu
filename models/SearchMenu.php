@@ -1,6 +1,6 @@
 <?php
 
-namespace yeesoft\menu\models\search;
+namespace yeesoft\menu\models;
 
 use yeesoft\models\Menu;
 use Yii;
@@ -31,6 +31,14 @@ class SearchMenu extends Menu
     {
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function formName()
+    {
+        return '';
     }
 
     /**
@@ -76,4 +84,5 @@ class SearchMenu extends Menu
 
         return $dataProvider;
     }
+
 }

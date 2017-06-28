@@ -1,7 +1,5 @@
 <?php
 
-use yii\helpers\Html;
-
 /* @var $this yii\web\View */
 /* @var $model yeesoft\menu\models\MenuLink */
 
@@ -10,7 +8,4 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('yee/menu', 'Menus'), 'url' 
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<div class="menu-link-create">
-    <h3 class="lte-hide-title"><?= Html::encode($this->title) ?></h3>
-    <?= $this->render('_form', compact('model')) ?>
-</div>
+<?= $this->render('_form', compact('model')) ?>

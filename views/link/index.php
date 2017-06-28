@@ -11,7 +11,7 @@ use yii\helpers\Url;
 use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
-/* @var $searchModel yeesoft\menu\models\search\SearchMenuLink */
+/* @var $searchModel yeesoft\menu\models\SearchMenuLink */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('yee/menu', 'Menu Links');

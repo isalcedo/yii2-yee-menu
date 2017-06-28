@@ -1,14 +1,14 @@
 <?php
 
-namespace yeesoft\menu\models\search;
+namespace yeesoft\menu\models;
 
-use yeesoft\models\MenuLink;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use yeesoft\models\User;
+use yeesoft\models\MenuLink;
 use yeesoft\helpers\YeeHelper;
 use yeesoft\models\OwnerAccess;
-use yeesoft\models\User;
 
 /**
  * SearchMenuLink represents the model behind the search form about `yeesoft\menu\models\MenuLink`.
@@ -34,6 +34,14 @@ class SearchMenuLink extends MenuLink
     {
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function formName()
+    {
+        return '';
     }
 
     /**
@@ -66,8 +74,7 @@ class SearchMenuLink extends MenuLink
             $this->$key = $value;
         }
 
-        $restrictLinkAccess = (YeeHelper::isImplemented(MenuLink::className(), OwnerAccess::CLASSNAME)
-            && !User::hasPermission(MenuLink::getFullAccessPermission()));
+        $restrictLinkAccess = (YeeHelper::isImplemented(MenuLink::className(), OwnerAccess::CLASSNAME) && !User::hasPermission(MenuLink::getFullAccessPermission()));
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
@@ -80,10 +87,11 @@ class SearchMenuLink extends MenuLink
         }
 
         $query->andWhere(['menu_id' => $this->menu_id])
-            ->andFilterWhere(['alwaysVisible' => $this->alwaysVisible])
-            ->andFilterWhere(['like', 'id', $this->id])
-            ->andWhere(['parent_id' => $this->parent_id]);
+                ->andFilterWhere(['alwaysVisible' => $this->alwaysVisible])
+                ->andFilterWhere(['like', 'id', $this->id])
+                ->andWhere(['parent_id' => $this->parent_id]);
 
         return $dataProvider;
     }
+
 }
