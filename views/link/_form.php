@@ -23,7 +23,7 @@ use yeesoft\widgets\LanguagePills;
                 <?= $form->field($model, 'label')->textInput(['maxlength' => true]) ?>
 
                 <?php if ($model->isNewRecord): ?>
-                    <?= $form->field($model, 'id')->textInput() ?>
+                    <?= $form->field($model, 'id')->slugInput(['maxlength' => true], 'label') ?>
                 <?php endif; ?>
 
                 <?php //$form->field($model, 'parent_id')->dropDownList($model->getSiblings(), ['class' => 'clearfix']) ?>

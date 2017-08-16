@@ -19,7 +19,7 @@ use yeesoft\widgets\ActiveForm;
                 <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
                 <?php if ($model->isNewRecord): ?>
-                    <?= $form->field($model, 'id')->textInput(['maxlength' => true]) ?>
+                    <?= $form->field($model, 'id')->slugInput(['maxlength' => true], 'title') ?>
                 <?php endif; ?>
             </div>
         </div>

@@ -2,7 +2,7 @@
 
 namespace yeesoft\menu\controllers;
 
-use yeesoft\controllers\admin\BaseController;
+use yeesoft\controllers\CrudController;
 use Yii;
 use yii\helpers\StringHelper;
 use yeesoft\helpers\YeeHelper;
@@ -15,7 +15,7 @@ use yeesoft\models\MenuLink;
 /**
  * MenuController implements the CRUD actions for Post model.
  */
-class DefaultController extends BaseController
+class DefaultController extends CrudController
 {
     public $modelClass = 'yeesoft\models\Menu';
     public $modelSearchClass = 'yeesoft\menu\models\SearchMenu';
