@@ -4,7 +4,6 @@ use yeesoft\helpers\Html;
 use yeesoft\helpers\FA;
 use yeesoft\models\Menu;
 use yeesoft\widgets\ActiveForm;
-use yeesoft\widgets\LanguagePills;
 
 /* @var $this yii\web\View */
 /* @var $model yeesoft\menu\models\MenuLink */
@@ -45,7 +44,7 @@ use yeesoft\widgets\LanguagePills;
                     <?= $form->field($model, 'id')->value() ?>
                 <?php endif; ?>
 
-                <?= $form->field($model, 'alwaysVisible')->checkbox() ?>
+                <?= $form->field($model, 'always_visible')->checkbox() ?>
 
                 <?php if ($model->isNewRecord): ?>
                     <?= $form->field($model, 'menu_id')->dropDownList(Menu::getMenus(), ['class' => 'clearfix form-control']) ?>

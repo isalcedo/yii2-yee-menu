@@ -6,7 +6,6 @@ use yeesoft\controllers\CrudController;
 use Yii;
 use yii\helpers\StringHelper;
 use yeesoft\helpers\YeeHelper;
-use yeesoft\models\OwnerAccess;
 use yeesoft\models\User;
 use yii\helpers\ArrayHelper;
 use yii\filters\VerbFilter;
@@ -58,16 +57,16 @@ class DefaultController extends CrudController
         $searchModel = $this->modelSearchClass ? new $this->modelSearchClass : null;
         $searchLinkModel = $this->modelLinkSearchClass ? new $this->modelLinkSearchClass : null;
 
-        $restrictAccess = (YeeHelper::isImplemented($modelClass, OwnerAccess::CLASSNAME)
-            && !User::hasPermission($modelClass::getFullAccessPermission()));
+//        $restrictAccess = (YeeHelper::isImplemented($modelClass, OwnerAccess::CLASSNAME)
+//            && !User::hasPermission($modelClass::getFullAccessPermission()));
 
         if ($searchModel) {
             $searchName = StringHelper::basename($searchModel::className());
             $params = Yii::$app->request->getQueryParams();
 
-            if ($restrictAccess) {
-                $params[$searchName][$modelClass::getOwnerField()] = Yii::$app->user->identity->id;
-            }
+//            if ($restrictAccess) {
+//                $params[$searchName][$modelClass::getOwnerField()] = Yii::$app->user->identity->id;
+//            }
 
             $dataProvider = $searchModel->search($params);
         } else {

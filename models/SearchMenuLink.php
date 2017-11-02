@@ -8,7 +8,6 @@ use yii\data\ActiveDataProvider;
 use yeesoft\models\User;
 use yeesoft\models\MenuLink;
 use yeesoft\helpers\YeeHelper;
-use yeesoft\models\OwnerAccess;
 
 /**
  * SearchMenuLink represents the model behind the search form about `yeesoft\menu\models\MenuLink`.
@@ -22,7 +21,7 @@ class SearchMenuLink extends MenuLink
     public function rules()
     {
         return [
-            [['order', 'alwaysVisible', 'created_by', 'updated_by'], 'integer'],
+            [['order', 'always_visible', 'created_by', 'updated_by'], 'integer'],
             [['id', 'menu_id', 'parent_id', 'link', 'label', 'image', 'created_at', 'updated_at'], 'safe'],
         ];
     }
@@ -74,7 +73,7 @@ class SearchMenuLink extends MenuLink
             $this->$key = $value;
         }
 
-        $restrictLinkAccess = (YeeHelper::isImplemented(MenuLink::className(), OwnerAccess::CLASSNAME) && !User::hasPermission(MenuLink::getFullAccessPermission()));
+        //$restrictLinkAccess = (YeeHelper::isImplemented(MenuLink::className(), OwnerAccess::CLASSNAME) && !User::hasPermission(MenuLink::getFullAccessPermission()));
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails
@@ -82,12 +81,12 @@ class SearchMenuLink extends MenuLink
             return $dataProvider;
         }
 
-        if ($restrictLinkAccess) {
-            $query->andFilterWhere([MenuLink::getOwnerField() => Yii::$app->user->identity->id]);
-        }
+//        if ($restrictLinkAccess) {
+//            $query->andFilterWhere([MenuLink::getOwnerField() => Yii::$app->user->identity->id]);
+//        }
 
         $query->andWhere(['menu_id' => $this->menu_id])
-                ->andFilterWhere(['alwaysVisible' => $this->alwaysVisible])
+                ->andFilterWhere(['always_visible' => $this->always_visible])
                 ->andFilterWhere(['like', 'id', $this->id])
                 ->andWhere(['parent_id' => $this->parent_id]);
 
