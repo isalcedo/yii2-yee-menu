@@ -38,9 +38,14 @@ use yeesoft\widgets\LanguagePills;
 
                     <?php //$form->field($model, 'parent_id')->dropDownList($model->getSiblings(), ['class' => 'clearfix']) ?>
 
-                    
+
 
                     <?= $form->field($model, 'link')->textInput(['maxlength' => true]) ?>
+
+                    <p>
+                        <?= Yii::t('yee', 'This is optional. Useful for design or some special purposes.') ?>
+                    </p>
+                    <?= $form->field($model, 'class')->textInput(['maxlength' => true]) ?>
 
                     <?php // $form->field($model, 'order')->textInput() ?>
 
@@ -61,13 +66,13 @@ use yeesoft\widgets\LanguagePills;
                                 <span><?= $model->id ?></span>
                             </div>
                         <?php endif; ?>
-                        
+
                         <?= $form->field($model, 'alwaysVisible')->checkbox() ?>
 
                         <?php if ($model->isNewRecord): ?>
                             <?= $form->field($model, 'menu_id')->dropDownList(Menu::getMenus(), ['class' => 'clearfix form-control']) ?>
                         <?php endif; ?>
-                        
+
                         <?= $form->field($model, 'image')->dropDownList(FA::getIconsList(), [
                             'class' => 'clearfix form-control fa-font-family',
                             'encode' => false,
@@ -109,9 +114,9 @@ $js = <<<JS
     $('#menulink-image-styler ul li:first').html('No Icon');
 
     setTimeout(function(){
-       
+
     },1000);
-    
+
 
 JS;
 $this->registerJs($js);
